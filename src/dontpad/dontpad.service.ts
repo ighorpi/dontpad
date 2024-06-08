@@ -29,6 +29,6 @@ export class DontpadService {
         key: key,
       },
     });
-    return data.text;
+    return data.text ?? '';
   }
 }
