@@ -1,7 +1,7 @@
 version: '3.9'
 services:
   app:
-    image: docker pull ghcr.io/ighorpi/gojo-pharaoh-bot:latest
+    image: ghcr.io/ighorpi/dontpad:latest
     container_name: dontpad
     build:
       context: .
