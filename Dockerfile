@@ -2,12 +2,12 @@ FROM node:22-alpine
 
 WORKDIR /app
 COPY package*.json .
-COPY ./prisma .
+COPY ./prisma ./prisma
 COPY tsconfig*.json .
 COPY .eslintrc.js .
 COPY nest*.json .
-COPY ./src .
-COPY ./views .
+COPY ./src ./src
+COPY ./views ./views
 
 RUN yarn
 RUN npx prisma generate
