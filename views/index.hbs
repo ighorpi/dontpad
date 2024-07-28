@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Nextpad</title>
+  <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+  <style>
+    .card {
+      border: 1px solid #ddd;
+      box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
+      width: 200px;
+      margin: 10px;
+    }
+    .card-body {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 100px;
+    }
+    .card-columns {
+      column-count: auto;
+    }
+  </style>
+  <script>
+    function redirectToChat() {
+      const chatInput = document.getElementById('chatInput').value;
+      window.location.href = '/' + chatInput
+    }
+  </script>
+</head>
+<body>
+  <div class="container">
+    <h1 class="mt-4">Nextpad</h1>
+    <div class="input-group mb-3">
+      <input type="text" class="form-control" id="chatInput">
+      <div class="input-group-append">
+        <button class="btn btn-primary" type="button" onclick="redirectToChat()">Ir</button>
+      </div>
+    </div>
+    <div class="d-flex flex-wrap justify-content-center">
+      {{#each links}}
+        <div class="card">
+          <div class="card-body">
+            <a href="/{{this.key}}">{{this.key}}</a>
+          </div>
+        </div>
+      {{/each}}
+    </div>
+  </div>
+</body>
+</html>

@@ -20,6 +20,10 @@ export class DontpadService {
       },
     });
 
+    if (!data) {
+      return '';
+    }
+
     return data.text ?? '';
   }
 
@@ -29,6 +33,27 @@ export class DontpadService {
         key: key,
       },
     });
-    return data.text ?? '';
+
+    if (!data) {
+      return '';
+    }
+    return data.text;
+  }
+
+  async getLinks() {
+    const data = await this.prisma.note.findMany({
+      select: {
+        key: true,
+      },
+      where: {
+        text: {
+          gt: '',
+        },
+      },
+      orderBy: {
+        key: 'asc',
+      },
+    });
+    return data;
   }
 }

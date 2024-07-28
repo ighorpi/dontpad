@@ -15,4 +15,10 @@ export class DontpadController {
       text: text,
     };
   }
+
+  @Get()
+  @Render('index')
+  async getLinks() {
+    return { links: await this.dontpad.getLinks() };
+  }
 }
