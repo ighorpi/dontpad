@@ -7,6 +7,7 @@ COPY tsconfig*.json .
 COPY .eslintrc.js .
 COPY nest*.json .
 COPY ./src .
+COPY ./views .
 
 RUN yarn
 RUN npx prisma generate
